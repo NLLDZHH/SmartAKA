@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Admin</title>
+    <script src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <h1>This is admin</h1>
+    <input id="input1" type="button" value="build system"/>
+    
+    <p></p>
+  <script>
+   $("#input1").click(function(){
+  	$.ajax({
+  		url:'keys/buildSystem.json',
+  		type:'post'
+  		//data: JSON.stringfy(object),
+  	});
+   });
+ 
+  </script>
+</body>
+</html>

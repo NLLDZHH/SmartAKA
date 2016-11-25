@@ -1,0 +1,68 @@
+/*全局*/
+body { background:#F1F1F1;}
+
+/*自定义*/
+.no-border { border:none !important;}
+.no-bg { background:none !important;}
+.space1 { clear:both; height:10px;}
+.space2 { clear:both; height:20px;}
+.space3 { clear:both; height:30px;}
+.space4 { clear:both; height:40px;}
+.space5 { clear:both; height:50px;}
+
+/*版块*/
+.g-hd { clear:both; width:100%; margin:0 auto; overflow:hidden;}
+.g-bd { clear:both; width:1200px; margin:0 auto; overflow:hidden;}
+.g-ft { clear:both; width:100%; margin:0 auto; overflow:hidden;}
+.g-mn {}
+.g-sd {}
+
+/*顶部连接+分享*/
+.m-login { width:1200px; height:40px; margin:0 auto; overflow:hidden;}
+.m-login ul {}
+.m-login ul li { float:right; display:inline-block; margin:8px 16px 0px 0px;}
+.m-login .login { font-size:14px; height:24px; line-height:24px;}
+.m-login .reg { font-size:14px; height:24px; line-height:24px;}
+.m-login .ico1 { background:url(../images/ico-1.gif) no-repeat; width:24px; height:24px;}
+.m-login .ico2 { background:url(../images/ico-2.gif) no-repeat; width:24px; height:24px;}
+.m-login .ico3 { background:url(../images/ico-3.gif) no-repeat; width:24px; height:24px;}
+.m-login .ico4 { background:url(../images/ico-4.gif) no-repeat; width:24px; height:24px;}
+/*LOGO+导航菜单*/
+.m-top { width:100%; height:100px; background:#FFF; overflow:hidden; clear:both;}
+.nav { width:1200px; height:100px; overflow:hidden; margin:0 auto;}
+.nav .logo { width:110px; height:100px; float:left;}
+.nav .txt { width:130px; height:100px; line-height:100px; text-align:center; font-size:30px; font-family:"微软雅黑"; font-weight:lighter; color:#0066CC; float:left;}
+.catalog { width:960px; float:right; height:100px;}
+.catalog ul li { float:left; text-align:center; color:#000; height:92px; width:120px; background:#FFF; border-bottom:#FFF 8px solid;}
+.catalog ul li:hover { color:#FFF; background:#007AD0; border-bottom:#F9C700 8px solid;}
+.catalog ul li.z-sel { color:#FFF; background:#007AD0; border-bottom:#F9C700 8px solid;}
+.catalog ul li.z-sel a { color:#FFF;}
+.catalog ul li a { display:block; height:92px; width:120px; color:#000;}
+.catalog ul li a:hover { display:block; height:92px; width:120px; color:#FFF;}
+.catalog ul li .cn { font-size:20px; font-family:"微软雅黑"; padding-top:28px;}
+.catalog ul li .en { font-size:14px; font-family:"微软雅黑";}
+/*幻灯片*/
+.m-banner { width:100%; height:340px; background:#5DB9FC; overflow:hidden; clear:both;}
+#playBox{ width:1200px; height:340px; overflow:hidden; margin:0 auto;}
+#playBox .playBox { width:1200px; height:340px; position:relative; overflow:hidden;}
+#playBox .oUlplay { width:99999px; position:absolute; left:0; top:0;}
+#playBox .oUlplay li{ float:left;}
+#playBox .pre{ cursor:pointer; width:50px; height:120px; background:url(../images/left.gif) no-repeat; position:absolute; top:110px; left:0px; z-index:10;}
+#playBox .next{ cursor:pointer; width:50px; height:120px; background:url(../images/right.gif) no-repeat; position:absolute; top:110px; right:0px; z-index:10;}
+#playBox .smalltitle { width:500px; left:50%; margin-left:-250px; height:10px; position:absolute; bottom:15px; z-index:10;}
+#playBox .smalltitle ul{ width:60px; margin:0 auto;}
+#playBox .smalltitle ul li{ width:10px; height:10px; margin:0 5px; border-radius:10px; background:#CECDCB; float:left; overflow:hidden; *display:inline; *zoom:1; cursor:pointer;}
+#playBox .smalltitle .thistitle{ background:#FFF;}
+
+/*底部连接+版权信息*/
+.m-link { padding-top:6px; margin-top:20px; height:210px; background:#323232 url(../images/bg-2.gif) repeat-x top; overflow:hidden;}
+.m-link dl { width:100px; float:left; margin:0px 100px;}
+.m-link dl dt { color:#CCC; border-bottom:#CCCCCC 2px solid; text-align:center; font-family:"微软雅黑"; font-size:16px; padding:16px 0px 12px 0px; margin-bottom:2px;}
+.m-link dl dd { color:#CCC; text-align:center; padding-top:10px;}
+.m-link dl dd a { color:#CCC; font-size:14px; font-family:"微软雅黑";}
+.m-link dl dd a:hover { color:#CCC; font-size:14px; text-decoration:underline; font-family:"微软雅黑";}
+.m-cpr { background:#252525; height:80px;}
+.m-cpr .txt1 { width:300px; text-align:center; float:left; line-height:80px; font-size:14px; font-family:"微软雅黑"; color:#CCC;}
+.m-cpr .txt2 { width:600px;text-align:center; float:left; line-height:80px; font-size:14px; font-family:"微软雅黑"; color:#CCC;}
+.m-cpr a { color:#CCC; font-size:14px;}
+.m-cpr a:hover { color:#CCC; font-size:14px; text-decoration:underline;}

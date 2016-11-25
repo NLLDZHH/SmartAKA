@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>User</title>
+    <script src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="newsController"> 
+         <ul>
+             <dl ng-repeat="x in newsItems">
+                 
+                  <p> </p>
+                <h1 align="center"> This is {{x.NAME}}</h1>
+                  
+             </dl>
+         </ul>
+      </div>
+    
+    <input id="input1" type="button" value="build system"/>
+    
+    <p></p>
+    
+    <input id="input2" type="button" value="Extract SecretKey "/>
+    <p>privatekey of user:</p><div id="info2"></div>
+    
+    <p></p>
+    <input id="input3" type="button" value="computeT"/>
+    <p>T of user:</p><div id="info3"></div>
+    
+    <p></p>
+    <input id="input4" type="button" value="createK"/>
+    <p>K of user:</p><div id="info4"></div>
+  <script>
+   $("#input1").click(function(){
+  	$.ajax({
+  		url:'keys/buildSystem.json',
+  		type:'post'
+  		//data: JSON.stringfy(object),
+  	});
+   });
+        $("#input2").click(function(){
+            var ss=window.location.pathname;
+        	
+            ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+        	$.ajax({
+        		url:'keys/extractSecretKeyOf'+escape(ss)+'.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info2').html(data[0].P);
+        		}
+        	});
+        });
+        
+        $("#input3").click(function(){
+        	
+        	$.ajax({
+        		url:'keys/computeTA.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info3').html(data[0].P);
+        		}
+        	});
+        });
+        
+        $("#input4").click(function(){
+        	$.ajax({
+        		url:'keys/createKA.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info4').html(data[0].P);
+        		}
+        	});
+        });
+      
+        
+       
+        
+        var app = angular.module('myApp', []);
+        app.controller('newsController', function($scope, $http) {
+        	//alert(window.location.pathname);
+        	//var ss=window.location.pathname;
+        	
+            //ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+          
+        	$http({
+        		url:'news/selectednews1.json',
+        		method:'GET'
+        		}).success(function(data){
+        			$scope.newsItems = data;
+        			//响应成功
+        		})
+
+        });
+        
+       
+        
+  </script>
+</body>
+</html>

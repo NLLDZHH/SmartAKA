@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Adversary</title>
+    <script src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <h1>This is Adversary</h1>
+    
+    
+    <div>
+    <input id="input2" type="button" value="receive SecretKey Of Alice and Bob"/>
+    <p>privatekey of ALice:</p><div id="info21"></div>   
+    <p></p> 
+    <p>privatekey of Bob:</p><div id="info22"></div>
+    </div>
+    <p></p>
+    <input id="input3" type="button" value="receive T of Alice and Bob"/>
+    <p>TA of ALice:</p><div id="info31"></div>
+     <p>TB of ALice:</p><div id="info32"></div>
+    <p></p>
+    <input id="input4" type="button" value="compute K"/>
+    <p>K of Adversary:</p><div id="info4"></div>
+  <script>
+   $("#input1").click(function(){
+	  alert(12);
+  	$.ajax({
+  		url:'keys/buildSystem.json',
+  		type:'post'
+  		//data: JSON.stringfy(object),
+  	});
+   });
+        $("#input2").click(function(){
+     
+        	$.ajax({
+        		url:'keys/receiveSAandSB.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info21').html(data[0].P);
+        			$('#info22').html(data[1].P);
+        		}
+        	});
+        });
+        
+        $("#input3").click(function(){
+        	$.ajax({
+        		url:'keys/receiveTAandTB.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info31').html(data[0].P);
+        			$('#info32').html(data[1].P);
+        		}
+        	});
+        });
+        
+        $("#input4").click(function(){
+        	$.ajax({
+        		url:'keys/computeK.json',
+        		type:'get',
+        		//data: JSON.stringfy(object),
+        		success:function(data){
+        			$('#info4').html(data[0].P);
+        		}
+        	});
+        });
+        
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<h1>This is Test</h1>
+<div ng-app="myApp" ng-controller="newsController"> 
+         <ul>
+             <dl ng-repeat="x in newsItems">
+                 
+                  <p> </p>
+                <h1 align="center"> {{x.P}}</h1>
+                  
+             </dl>
+         </ul>
+      </div>
+<SCRIPT LANGUAGE="JavaScript"> 
+       
+var app = angular.module('myApp', []);
+app.controller('newsController', function($scope, $http) {
+	//alert(1);
+	$http({
+		url:'news/selectednews.json',
+		method:'GET'
+		}).success(function(data){
+			$scope.newsItems = data;
+			//响应成功
+		})
+
+});
+</SCRIPT>
+</body>
+</html>

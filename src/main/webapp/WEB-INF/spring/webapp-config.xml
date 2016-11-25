@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/>
+	
+	<!-- 激活@Controller模式 -->
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler />
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+    <context:component-scan base-package="com.njust.SmartAKA.controllers" />
+	
+	<!-- 扫描文件（自动将servicec层注入） -->
+    <!-- context:component-scan base-package="com.app.service"/ -->
+    <!--
+     <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/download/**" />
+    		<bean class="com.njust.SmartAKA.interceptor.CommonInterceptor">
+    			<property name="excludedUrls">
+                    <list>
+                        <value>/login</value>
+                    </list>
+                </property> 
+    		</bean>
+    	</mvc:interceptor>
+    </mvc:interceptors>
+      -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    
+    <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="fileEncoding" value="UTF-8" />  
+        <property name="location" value="classpath:conf/spring/a.properties" />  
+    </bean> 
+    
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/html/"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".html"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+    </bean>
+
+</beans>

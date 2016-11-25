@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 命名空间 -->
+    <typeAliases>
+       <!--   <typeAlias alias="LoginForm" type="com.app.model.LoginForm"/>
+         <typeAlias alias="News" type="com.app.model.News"/>--> 
+          <typeAlias alias="User" type="com.njust.SmartAKA.model.User"/>
+          
+    </typeAliases>
+ 
+    <!-- 映射map -->
+    <mappers>
+    <!--	<mapper resource="conf/mapper/UserMapper.xml" />
+    	<mapper resource="conf/mapper/NewsMapper.xml" />-->
+    	<mapper resource="conf/mapper/EcuserMapper.xml" />
+    	
+    </mappers>
+</configuration>

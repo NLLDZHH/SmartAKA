@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.njust.SmartAKA.dao.UserDao">
+     <select id="findByUsername" parameterType="String" resultType="User">  
+       select * from account where username=#{username}  
+    </select>  
+     <select id="findByUsernameFromaccountone" parameterType="String" resultType="User">  
+       select *from accountone where username=#{username}  
+    </select>  
+    
+    
+    <resultMap id="usersMap" type="User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+    </resultMap>
+    <!-- select语句 -->
+    <select id="selectAllUsers" resultMap="usersMap">
+       SELECT *FROM account 
+    </select>       
+    
+    
+   
+    
+    
+    
+    
+</mapper>

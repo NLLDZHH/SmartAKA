@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>USERSLIST</title>
+    <script src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<h1>Welcome</h1>
+
+
+<div ng-app="myApp" ng-controller="newsController"> 
+        
+         <ul>
+             <dl ng-repeat="item in newsItems">
+                
+                 <h4>
+                     <a href="#{{item.username}}">{{item.username}}</a>
+                </h4> 
+             </dl>
+         </ul>
+      </div>
+ <!--    <input id="input0" type="button" value="receive"/>      
+    <div id="info0"></div>  
+  <p></p>
+      
+  <!--  <input id="input1" type="button" value="send"/>  -->  
+      
+      
+  <p></p>
+    
+    <input id="input2" type="button" value="Extract SecretKey "/>
+    <p>privatekey of user:</p><div id="info2"></div>
+        
+  <p></p>
+    <input id="input3" type="button" value="computeT"/>
+    <p>T of user:</p><div id="info3"></div>    
+      
+      
+    <p></p>
+    <input id="input4" type="button" value="createK"/>
+    <p>K of user:</p><div id="info4"></div>  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+<SCRIPT LANGUAGE="JavaScript"> 
+    
+$("#input0").click(function(){
+	
+	var ss=window.location.pathname;
+	 ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+	
+	alert(ss);
+	 $.ajax({
+			url:'keys/receive'+escape(ss)+'.json',
+			type:'get',
+			//data: JSON.stringfy(object),
+			success:function(data){
+				$('#info0').html(data[0].P);
+			}
+		});
+	});
+
+
+
+
+
+
+       
+$("#input1").click(function(){
+	
+	var ss=window.location.hash;
+	 ss=ss.substr(ss.indexOf("#")+1,ss.length-1);
+	
+	alert(ss);
+     $.ajax({
+			url:'Name='+escape(ss),
+			type:'post',
+			//data: JSON.stringfy(object),
+		});
+     });
+       
+ 
+       
+       
+       
+$("#input2").click(function(){
+    var ss=window.location.pathname;
+	
+    ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+   // alert(ss);
+   // alert(window.location.hash);
+	$.ajax({
+		url:'keys/extractSecretKeyOf'+escape(ss)+'.json',
+		type:'get',
+		//data: JSON.stringfy(object),
+		success:function(data){
+			$('#info2').html(data[0].P);
+		}
+	});
+});
+       
+       
+$("#input3").click(function(){
+    var ss=window.location.pathname;
+    ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+	$.ajax({
+		url:'keys/computeTof'+escape(ss)+'.json',
+		type:'get',
+		//data: JSON.stringfy(object),
+		success:function(data){
+			$('#info3').html(data[0].P);
+		}
+	});
+});
+       
+       
+       
+       
+       
+var app = angular.module('myApp', []);
+app.controller('newsController', function($scope, $http) {
+	//alert(1);
+//	var ss=window.location.pathname;     	
+   // ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+    //alert(ss);
+	$http({
+		url:'news/selectednews.json',
+		method:'GET'
+		}).success(function(data){
+			$scope.newsItems = data;
+			
+			//响应成功
+		})
+
+});
+
+
+$("#input4").click(function(){
+	
+	var ss=window.location.href;     	
+    ss=ss.substr(ss.indexOf("=")+1,ss.length-1);
+  //  alert(ss);
+	
+	
+	$.ajax({
+		url:'keys/createKOf'+escape(ss)+'.json',
+		type:'get',
+		//data: JSON.stringfy(object),
+		success:function(data){
+			$('#info4').html(data[0].P);
+		}
+	});
+});
+
+
+
+
+
+</SCRIPT>
+</body>
+</html>
